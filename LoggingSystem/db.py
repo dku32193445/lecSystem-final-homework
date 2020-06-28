@@ -1,3 +1,4 @@
+from utils.PasswordEncrypt import PasswordEncryptContext
 import sqlite3
 import uuid
 
@@ -193,7 +194,10 @@ class DB:
         rootId = "root"
         rootPw = "".join(str(uuid.uuid4()).split("-")) #generate random string
     
-        self.InsertNewAdmin(rootId, rootPw, 1)
+        encryptContext = PasswordEncryptContext()
+        hashedPw = encryptContext.Encrypt(rootPw)
+
+        self.InsertNewAdmin(rootId, hashedPw, 1)
 
         return (rootId, rootPw)
     
