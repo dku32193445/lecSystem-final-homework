@@ -4,33 +4,33 @@ from MenuCallbacks import RequestCA, QueryCARequests, ExtendCA, SecureConnection
 
 user = User()
 
-subject = {
-    "countryName" : "kr",
-    "stateOrProvinceName" : "seoul",
-    "localityName" : "user",
-    "organizationName" : "dankook",
-    "organizationalUnitName" : "software dept.",
-    "commonName" : "user-ca",
-    "emailAddress" : "user@ur.se"
-}
-
 # subject = {
-#     "countryName" : "",
-#     "stateOrProvinceName" : "",
-#     "localityName" : "",
-#     "organizationName" : "",
-#     "organizationalUnitName" : "",
-#     "commonName" : "",
-#     "emailAddress" : ""
+#     "countryName" : "kr",
+#     "stateOrProvinceName" : "seoul",
+#     "localityName" : "user",
+#     "organizationName" : "dankook",
+#     "organizationalUnitName" : "software dept.",
+#     "commonName" : "user-ca",
+#     "emailAddress" : "user@ur.se"
 # }
 
-# subject["countryName"] = input("countryName(ex : kr) : ")
-# subject["stateOrProvinceName"] = input("stateOrProvinceName : ")
-# subject["localityName"] = input("localityName : ")
-# subject["organizationName"] = input("organizationName : ")
-# subject["organizationalUnitName"] = input("organizationalUnitName : ")
-# subject["commonName"] = input("commonName : ")
-# subject["emailAddress"] = input("emailAddress : ")
+subject = {
+    "countryName" : "",
+    "stateOrProvinceName" : "",
+    "localityName" : "",
+    "organizationName" : "",
+    "organizationalUnitName" : "",
+    "commonName" : "",
+    "emailAddress" : ""
+}
+
+subject["countryName"] = input("countryName(ex : kr) : ")
+subject["stateOrProvinceName"] = input("stateOrProvinceName : ")
+subject["localityName"] = input("localityName : ")
+subject["organizationName"] = input("organizationName : ")
+subject["organizationalUnitName"] = input("organizationalUnitName : ")
+subject["commonName"] = input("commonName : ")
+subject["emailAddress"] = input("emailAddress : ")
 
 user.SetSubject(subject)
 
