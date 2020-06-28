@@ -1,3 +1,4 @@
+import os
 from OpenSSL import crypto
 import datetime
 from utils.FillX509Name import FillX509Name
