@@ -1,0 +1,10 @@
+# created by virtualenv automatically
+
+.vscode
+.once
+cert.db
+root-cert.crt
+root-key.pem
+root-key.pub
+
+__pycache__

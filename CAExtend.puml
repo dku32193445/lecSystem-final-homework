@@ -1,0 +1,15 @@
+@startuml UserCAExtend
+actor User
+actor LoggingSystem
+database sqlite
+
+User -> LoggingSystem: 1. 사용자 기존 인증서 제출
+LoggingSystem -> LoggingSystem: 2. 사용자 기존 인증서 복호화
+LoggingSystem -> LoggingSystem: 3. 사용자 기존 인증서 만료 검증
+LoggingSystem -> sqlite: 4. 인증서 Issuer, Subject 조회
+sqlite -> LoggingSystem: 5. 인증서 Issuer, Subject 반환
+LoggingSystem -> LoggingSystem: 6. 사용자에게 전달받은 인증서와\n DB 로그의 인증서 비교
+LoggingSystem -> LoggingSystem: 7. 새 인증서 생성
+LoggingSystem -> sqlite: 8. 인증서 로그 생성
+LoggingSystem -> User: 9. 새 인증서 전달
+@enduml

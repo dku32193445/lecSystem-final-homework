@@ -1,0 +1,20 @@
+@startuml UserCAExtend
+actor User
+actor LoggingSystem
+database sqlite
+actor Admin
+
+User -> LoggingSystem: 1. Issuer, Subject 제출
+LoggingSystem -> sqlite: 2. CA Request 정보 저장
+...
+Admin -> sqlite: 3. CA Request 조회
+Admin -> Admin: 4. CA Request 정보 검증
+Admin -> sqlite: 5. CA Request 승인
+...
+User -> LoggingSystem: 6. CA 발급 상태 조회
+LoggingSystem -> sqlite: 7. CA Request 상태 조회
+sqlite -> LoggingSystem: 8. 승인 정보 및 Issuer, Subject 조회
+LoggingSystem -> LoggingSystem: 9. 인증서 생성
+LoggingSystem -> sqlite: 10. 인증서 로그 생성
+LoggingSystem -> User: 11. 인증서 반환
+@enduml

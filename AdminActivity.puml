@@ -1,0 +1,40 @@
+@startuml AdminActivityDiagram
+start
+: 어드민 프로그램 실행;
+: 로그인;
+if (로그인 성공) then(yes)
+    repeat
+        :show menu;
+        :메뉴 입력;
+        if (1. 어드민 추가) then(yes)
+            : ID, PW 입력;
+            : LoggingSystem에 데이터 전송;
+            if (성공) then(yes)
+                : 성공했다는 메시지 출력;
+            else(no)
+                : 실패한 사유 출력;
+            endif
+        elseif (2. 인증서 발급 요청 조회) then(yes)
+            : LoggingSystem에 발급 요청 조회;
+            if (성공) then(yes)
+                : 현재 발급 신청 상태인 리스트 조회;
+                if (조회하고자는 index 입력) then(번호 입력)
+                    : 인증서 신청 데이터 조회;
+                    if (승인) then(yes)
+                        : LoggingSystem에 승인 전송;
+                    else(no)
+                        : LoggingSystem에 반려 전송;
+                    endif
+                else(번호 미입력)
+                endif
+            else(no)
+                : 실패한 사유 출력;
+            endif
+        elseif (3. 종료) then(yes)
+            end
+        endif
+    repeat while
+else(no)
+    end
+endif
+@enduml

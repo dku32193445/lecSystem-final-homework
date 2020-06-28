@@ -1,0 +1,12 @@
+# created by virtualenv automatically
+
+.vscode
+
+ca.crt
+encrypt_ca.crt
+key.pem
+key.pub
+secure-key.pem
+secure-key.pub
+
+__pycache__

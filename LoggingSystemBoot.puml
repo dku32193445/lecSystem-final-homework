@@ -1,0 +1,19 @@
+@startuml LoggingSystemBoot
+start
+:로깅 시스템 실행;
+
+if (.once 파일이 존재하는가?) then(yes)
+note left 
+    .once 파일이 존재하지 않으면
+    로깅 시스템을 최초 실행한 것으로 판단하고
+    초기화를 진행한다. 
+end note
+    : .once 파일 생성;
+    : sqlite db 스키마 생성;
+    : root 계정 생성;
+else (no)
+endif
+
+: http 서버 start;
+end
+@enduml
