@@ -150,10 +150,16 @@ class Certificate:
         file.close()
 
     def LoadCAFiles(self):
-        x509Cert = self.LoadCert(Certificate.RootCertFileName)
-        privateKey = self.LoadPrivateKey(Certificate.RootPrivateKeyFileName)
-        pubKey = self.LoadPubKey(Certificate.RootPubKeyFileName)
+        workingDir = os.getcwd()
+        if (
+            os.path.isfile(os.path.join(workingDir, Certificate.RootCertFileName)) and
+            os.path.isfile(os.path.join(workingDir, Certificate.RootPrivateKeyFileName)) and
+            os.path.isfile(os.path.join(workingDir, Certificate.RootPubKeyFileName))
+        ):
+            x509Cert = self.LoadCert(Certificate.RootCertFileName)
+            privateKey = self.LoadPrivateKey(Certificate.RootPrivateKeyFileName)
+            pubKey = self.LoadPubKey(Certificate.RootPubKeyFileName)
 
-        self.SetRootCert(x509Cert)
-        self.SetPrivateKey(privateKey)
-        self.SetPubKey(pubKey)
+            self.SetRootCert(x509Cert)
+            self.SetPrivateKey(privateKey)
+            self.SetPubKey(pubKey)
